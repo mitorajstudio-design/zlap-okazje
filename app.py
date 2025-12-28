@@ -27,14 +27,18 @@ if 'display_count' not in st.session_state:
 if 'favorites' not in st.session_state:
     st.session_state.favorites = []
 
-# --- 3. CSS (WYGLĄD) ---
+# --- 3. CSS (CZYSTY WYGLĄD BEZ REKLAM) ---
 st.markdown("""
 <style>
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    .stDeployButton {display:none;}
-    [data-testid="stHeader"] { background-color: transparent; }
+    /* --- SEKCJA UKRYWANIA BRANDINGU --- */
+    #MainMenu {visibility: hidden;}      /* Ukrywa menu Streamlit/GitHub */
+    footer {visibility: hidden;}         /* Ukrywa stopkę */
+    .stDeployButton {display:none;}      /* Ukrywa przycisk wdrażania */
     
+    /* Ukrywamy tło nagłówka, ale zostawiamy elementy (żeby strzałka działała) */
+    [data-testid="stHeader"] {background-color: transparent;}
+    
+    /* --- RESZTA TWOJEGO STYLU --- */
     .stApp { background-color: #f4f6f9; }
     .block-container {padding-top: 1rem;}
 
@@ -81,7 +85,7 @@ st.markdown("""
         background-color: #ff4b2b; color: white; border-color: #ff4b2b;
     }
 
-    /* CENY */
+    /* CENY (DÓŁ KARTY) */
     .card-bottom {
         background: #fafafa; border: 1px solid #ddd; border-top: none;
         border-radius: 0 0 12px 12px; overflow: hidden; margin-bottom: 30px;
